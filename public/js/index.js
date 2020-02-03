@@ -8,8 +8,8 @@ let app = new Vue({
     second: 0,
     stages: [
       stageCreator("Вдох", 4),
-      stageCreator("Задержи", 2),
-      stageCreator("Выдох", 6)
+      stageCreator("Задержи", 15),
+      stageCreator("Выдох", 10)
     ],
     stage: 0,
     realTime: 0,
