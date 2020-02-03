@@ -38,10 +38,24 @@
         </h2>
         <!-- <div>Иконка пульса и давления</div> -->
         <div>
-            <div>Круг 1. Время: {{second}} сек.</div>
-            <div>Вдох: {{second % inhale }} сек. <br> Задержка дыхания: {{second % hold}} сек. <br> Выдох: {{second % exhale}} сек.</div>
+            <div>Круг {{circle}}. Время: {{second}} сек.</div>
+            <div class="h4"><strong class="text-uppercase">{{stages[stage].label}}</strong></div>
+            <div>ещё секунд <strong>{{realTime}}</strong></div>
+            <!-- <div>Вдох: {{second % inhale }} сек. <br> Задержка дыхания: {{second % hold}} сек. <br> Выдох: {{second % exhale}} сек.</div> -->
     
         </div>
+        <div>
+            <ul class="list-group mt-3">
+                <li v-for="item in stages" class="list-group-item">
+                    <div class="row">
+                        <div class="col-4"> <button @click="item.seconds--" class="btn btn-sm btn-block btn-outline-danger">-</button></div>
+                        <div class="col-4 small">{{item.label}}<br>{{item.seconds}}</div>
+                        <div class="col-4"><button @click="item.seconds++" class="btn btn-sm btn-block btn-outline-success">+</button @click="item.seconds--"></div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+<!-- 
         <div class="row">
             <div class="col-sm-6">
                 <div class="form my-3">Режим:
@@ -59,7 +73,7 @@
                     </select></div>
             </div>
 
-        </div>
+        </div> -->
 
 
         <!-- <div><button @click="start" class="mt-4 btn btn-outline-success">Начать тренировку</button></div>
